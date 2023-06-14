@@ -1,9 +1,10 @@
+import Card from "./components/UserCards/UserCards";
 
 
 function App() {
   return (
     <div >
-      <h1>START</h1>
+      <Card/>
     </div>
   );
 }
