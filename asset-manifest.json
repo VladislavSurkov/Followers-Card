@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/followers-card/static/css/main.e6c13ad2.css",
+    "main.js": "/followers-card/static/js/main.ecf06cf5.js",
+    "index.html": "/followers-card/index.html",
+    "main.e6c13ad2.css.map": "/followers-card/static/css/main.e6c13ad2.css.map",
+    "main.ecf06cf5.js.map": "/followers-card/static/js/main.ecf06cf5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.ecf06cf5.js"
+  ]
+}
