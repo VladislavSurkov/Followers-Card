@@ -1,8 +1,7 @@
 # Followers-Card
- "gh-pages": "^5.0.0",
 
-     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
