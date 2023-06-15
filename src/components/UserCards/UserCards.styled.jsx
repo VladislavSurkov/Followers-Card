@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled, { css } from "styled-components";
 import picture from "../../images/picture.png";
 
 export const Card = styled.section`
@@ -59,10 +59,10 @@ export const ContainerImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   width: 80px;
   height: 80px;
-  
+
   background-color: #ebd8ff;
   box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
     inset 0px -2.19582px 4.39163px #ae7be3,
@@ -96,6 +96,25 @@ export const Item = styled.li`
   }
 `;
 
+const COLOR = {
+  follow: css`
+    background: #ebd8ff;
+    transition-property: background-color;
+    transition-duration: 500ms;
+    :hover {
+      background: #ebd8ff9f;
+    }
+  `,
+  following: css`
+    background: #5cd3a8;
+    transition-property: background-color;
+    transition-duration: 500ms;
+    :hover {
+      background: #5cd3a89f;
+    }
+  `,
+};
+
 export const Button = styled.button`
   font-family: "Montserrat";
 
@@ -109,7 +128,7 @@ export const Button = styled.button`
   width: 196px;
   height: 50px;
 
-  background: #ebd8ff;
+  ${(props) => props.color && COLOR[props.color]};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
 `;
