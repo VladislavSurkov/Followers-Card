@@ -35,7 +35,7 @@ const UserCards = () => {
         </Strip>
 
         <Items>
-          <Item>778 tweets</Item>
+          <Item>777 tweets</Item>
           <Item>100,500 Followers</Item>
         </Items>
         
