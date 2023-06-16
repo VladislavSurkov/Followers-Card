@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import picture from "../../images/picture.png";
 
 export const Card = styled.section`
@@ -94,41 +94,4 @@ export const Item = styled.li`
   :not(:last-child) {
     margin-bottom: 16px;
   }
-`;
-
-const COLOR = {
-  follow: css`
-    background: #ebd8ff;
-    transition-property: background-color;
-    transition-duration: 500ms;
-    :hover {
-      background: #ebd8ff9f;
-    }
-  `,
-  following: css`
-    background: #5cd3a8;
-    transition-property: background-color;
-    transition-duration: 500ms;
-    :hover {
-      background: #5cd3a89f;
-    }
-  `,
-};
-
-export const Button = styled.button`
-  font-family: "Montserrat";
-
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 22px;
-  text-transform: uppercase;
-
-  color: #373737;
-
-  width: 196px;
-  height: 50px;
-
-  ${(props) => props.color && COLOR[props.color]};
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
-  border-radius: 10.3108px;
 `;

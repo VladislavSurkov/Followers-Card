@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { updateUsers } from "redux/users/users-operations";
 import Icon from "../../images/svg/icons.svg";
+import Button from "components/Button/Button";
 import {
   Card,
   SvgLogo,
@@ -9,7 +10,6 @@ import {
   Strip,
   Items,
   Item,
-  Button,
   ContainerImg,
   ImgAvatar,
 } from "./UserCards.styled";
@@ -38,40 +38,42 @@ const UserCards = ({ users, usersId, setUsersId }) => {
 
   return (
     <>
-      {users.length > 0 && users.map(({ user, followers, tweets, avatar, id }) => {
-        const checkFollow = usersId.some((i) => i === id);
+      {users.length > 0 &&
+        users.map(({ user, followers, tweets, avatar, id }) => {
+          const checkFollow = usersId.some((i) => i === id);
 
-        return (
-          <Card key={id}>
-            <SvgLogo>
-              <use href={Icon + "#logo"}></use>
-            </SvgLogo>
+          return (
+            <Card key={id}>
+              <SvgLogo>
+                <use href={Icon + "#logo"}></use>
+              </SvgLogo>
 
-            <Picture />
+              <Picture />
 
-            <User>
-              <Strip>
-                <ContainerImg>
-                  <ImgAvatar src={avatar} alt="user" />
-                </ContainerImg>
-              </Strip>
+              <User>
+                <Strip>
+                  <ContainerImg>
+                    <ImgAvatar src={avatar} alt="user" />
+                  </ContainerImg>
+                </Strip>
 
-              <Items>
-                <Item>{user}</Item>
-                <Item>{tweets} tweets</Item>
-                <Item>{formatNumber(followers)} Followers</Item>
-              </Items>
+                <Items>
+                  <Item>{user}</Item>
+                  <Item>{tweets} tweets</Item>
+                  <Item>{formatNumber(followers)} Followers</Item>
+                </Items>
 
-              <Button
-                onClick={() => handleFollow(id, followers, checkFollow)}
-                color={checkFollow ? "following" : "follow"}
-              >
-                {checkFollow ? "Following" : "Follow"}
-              </Button>
-            </User>
-          </Card>
-        );
-      })}
+                <Button
+                  onClick={() => handleFollow(id, followers, checkFollow)}
+                  width="followers"
+                  color={checkFollow ? "secondary" : "primary"}
+                >
+                  {checkFollow ? "Following" : "Follow"}
+                </Button>
+              </User>
+            </Card>
+          );
+        })}
     </>
   );
 };

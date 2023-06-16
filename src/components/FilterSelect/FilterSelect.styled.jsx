@@ -1,7 +1,9 @@
-
 export const colorStyles = {
   control: () => ({
     display: "flex",
+    width: "400px",
+    backgroundColor: "white",
+    borderRadius: "10px",
   }),
   placeholder: (base) => ({
     ...base,
@@ -15,12 +17,23 @@ export const colorStyles = {
   }),
   valueContainer: (base) => ({
     ...base,
+
+    fontFamily: "Montserrat",
+    fontWeight: "500",
+    fontSize: "20px",
+    lineHeight: "24px",
+
     padding: 0,
     margin: 0,
-    marginLeft: "5px",
+    marginLeft: "20px",
   }),
   option: (base, { isSelected }) => ({
     ...base,
+
+    fontFamily: "Montserrat",
+    fontWeight: "500",
+    fontSize: "20px",
+    lineHeight: "24px",
 
     display: "flex",
     justifyContent: "space-between",
@@ -36,17 +49,15 @@ export const colorStyles = {
   }),
 };
 
-export const themeStyles = theme => ({
+export const themeStyles = (theme) => ({
   ...theme,
   colors: {
     ...theme.colors,
-    primary25: 'none',
-    primary: 'none',
+    primary25: "none",
+    primary: "none",
   },
 });
 
-export const IndicatorSeparator = ({
-  innerProps,
-}) => {
-  return <span style={{ display: 'none' }} {...innerProps} />;
+export const IndicatorSeparator = ({ innerProps }) => {
+  return <span style={{ display: "none" }} {...innerProps} />;
 };

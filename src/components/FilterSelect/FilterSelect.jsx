@@ -4,6 +4,7 @@ import {
   themeStyles,
   IndicatorSeparator,
 } from "./FilterSelect.styled";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const FilterItem = [
   {
@@ -21,27 +22,45 @@ const FilterItem = [
 ];
 
 const FilterSelect = ({ tweets, usersId, setFilterTweets, setEndIndex }) => {
-  const onChange = (newValue) => {
-    switch (newValue.value) {
-      case "showall":
-        setFilterTweets([]);
-        setEndIndex(3);
-        break;
+  const [currentCategory, setCurrentCategory] = useState(FilterItem[0]);
+  const prevCategoryRef = useRef();
 
-      case "follow":
-        setFilterTweets(tweets.filter((tweet) => usersId.includes(tweet.id)));
-        setEndIndex(3);
-        break;
+  const onChange = useCallback(
+    (newValue) => {
+      if (prevCategoryRef.current !== newValue)
+        prevCategoryRef.current = currentCategory;
 
-      case "followings":
-        setFilterTweets(tweets.filter((tweet) => !usersId.includes(tweet.id)));
-        setEndIndex(3);
-        break;
+      setCurrentCategory(newValue);
 
-      default:
-        break;
-    }
-  };
+      switch (newValue.value) {
+        case "showall":
+          setFilterTweets(tweets);
+          break;
+
+        case "follow":
+          setFilterTweets(
+            tweets.filter((tweet) => !usersId.includes(tweet.id))
+          );
+          break;
+
+        case "followings":
+          setFilterTweets(tweets.filter((tweet) => usersId.includes(tweet.id)));
+          break;
+
+        default:
+          break;
+      }
+    },
+    [tweets, usersId, setFilterTweets, currentCategory]
+  );
+
+  useEffect(() => {
+    if (prevCategoryRef.current !== currentCategory) setEndIndex(3);
+  }, [currentCategory, setEndIndex]);
+
+  useEffect(() => {
+    if (tweets) onChange(currentCategory);
+  }, [tweets, onChange, currentCategory]);
 
   return (
     <Select

@@ -1,4 +1,6 @@
+import Button from "components/Button/Button";
 import { useEffect } from "react";
+import { PaginationContainer } from "./Pagination.styled";
 
 const Pagination = ({ tweets, setVisibleTweets, endIndex, setEndIndex }) => {
   const loadMore = () => {
@@ -12,7 +14,11 @@ const Pagination = ({ tweets, setVisibleTweets, endIndex, setEndIndex }) => {
   return (
     <>
       {endIndex < tweets.length && (
-        <button onClick={loadMore}>Load More</button>
+        <PaginationContainer>
+          <Button onClick={loadMore} width="loadMore" color="secondary">
+            Load More
+          </Button>
+        </PaginationContainer>
       )}
     </>
   );

@@ -9,14 +9,14 @@ import {
   REGISTER,
 } from "redux-persist";
 
-import { usersReduser } from "./users/users-slice";
+import { usersReducer } from "./users/users-slice";
 
 
 
 
 export const store = configureStore({
   reducer: {
-    users: usersReduser,
+    users: usersReducer,
   },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({
