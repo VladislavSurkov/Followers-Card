@@ -1,20 +1,16 @@
-import { useDispatch } from "react-redux";
-import Card from "./components/UserCards/UserCards";
-import { useEffect } from "react";
-import { fetchUsers } from "redux/users/users-operations";
-
+import { Routes, Route } from "react-router-dom";
+import Tweets from "pages/Tweets/Tweets";
+import Home from "pages/Home/Home";
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
-
   return (
-    <div >
-      <Card/>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tweets" element={<Tweets />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </>
   );
 }
 

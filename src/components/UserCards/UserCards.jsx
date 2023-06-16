@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "redux/users/users-selectors";
-
+import { useDispatch } from "react-redux";
+import { updateUsers } from "redux/users/users-operations";
 import Icon from "../../images/svg/icons.svg";
 import {
   Card,
@@ -14,43 +13,32 @@ import {
   ContainerImg,
   ImgAvatar,
 } from "./UserCards.styled";
-import { updateUsers } from "redux/users/users-operations";
-import { useLocalStorage } from "hooks/useLocalStorage";
 
-const UserCards = () => {
-  const [usersId, setUsersId] = useLocalStorage("usersId", []);
+const UserCards = ({ users, usersId, setUsersId }) => {
   const dispatch = useDispatch();
-  const users = useSelector(getUsers);
 
   const formatNumber = (num) => {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   };
 
   const handleFollow = (id, e, checkFollow) => {
-    let updateUser;
+    const updateUser = {
+      id,
+      followers: checkFollow ? e - 1 : e + 1,
+    };
 
-    if (!checkFollow) {
-      setUsersId((prevUsersId) => [id, ...prevUsersId]);
-      updateUser = {
-        id,
-        followers: e + 1,
-      };
-    } else {
-      setUsersId((prevUsersId) =>
-        prevUsersId.filter((usersId) => usersId !== id)
-      );
-      updateUser = {
-        id,
-        followers: e - 1,
-      };
-    }
+    setUsersId((prevUsersId) =>
+      checkFollow
+        ? prevUsersId.filter((usersId) => usersId !== id)
+        : [id, ...prevUsersId]
+    );
 
     dispatch(updateUsers(updateUser));
   };
 
   return (
     <>
-      {users.map(({ user, followers, tweets, avatar, id }) => {
+      {users.length > 0 && users.map(({ user, followers, tweets, avatar, id }) => {
         const checkFollow = usersId.some((i) => i === id);
 
         return (
