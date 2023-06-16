@@ -59,7 +59,7 @@ const UserCards = ({ users, usersId, setUsersId }) => {
 
                 <Items>
                   <Item>{user}</Item>
-                  <Item>{tweets} tweets</Item>
+                  <Item>{formatNumber(tweets)} tweets</Item>
                   <Item>{formatNumber(followers)} Followers</Item>
                 </Items>
 
