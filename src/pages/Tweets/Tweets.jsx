@@ -6,7 +6,7 @@ import { useLocalStorage } from "hooks/useLocalStorage";
 import { fetchUsers } from "redux/users/users-operations";
 import { getUsers } from "redux/users/users-selectors";
 
-import FilterSelect from "components/FilterSelect/FilterSelect";
+import Dropdown from "components/Dropdown/Dropdown";
 import Pagination from "components/Pagination/Pagination";
 import UserCards from "components/UserCards/UserCards";
 import Button from "components/Button/Button";
@@ -40,7 +40,7 @@ const Tweets = () => {
           </Button>
         </BtnContainer>
 
-        <FilterSelect
+        <Dropdown
           tweets={tweets}
           usersId={usersId}
           setFilterTweets={setFilterTweets}

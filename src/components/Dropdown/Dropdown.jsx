@@ -1,10 +1,10 @@
 import Select from "react-select";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   colorStyles,
   themeStyles,
   IndicatorSeparator,
-} from "./FilterSelect.styled";
-import { useCallback, useEffect, useRef, useState } from "react";
+} from "./Dropdown.styled";
 
 const FilterItem = [
   {
@@ -21,7 +21,7 @@ const FilterItem = [
   },
 ];
 
-const FilterSelect = ({ tweets, usersId, setFilterTweets, setEndIndex }) => {
+const Dropdown = ({ tweets, usersId, setFilterTweets, setEndIndex }) => {
   const [currentCategory, setCurrentCategory] = useState(FilterItem[0]);
   const prevCategoryRef = useRef();
 
@@ -74,4 +74,4 @@ const FilterSelect = ({ tweets, usersId, setFilterTweets, setEndIndex }) => {
     />
   );
 };
-export default FilterSelect;
+export default Dropdown;
