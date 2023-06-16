@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
-  persistStore,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -10,9 +9,6 @@ import {
 } from "redux-persist";
 
 import { usersReducer } from "./users/users-slice";
-
-
-
 
 export const store = configureStore({
   reducer: {
@@ -26,5 +22,3 @@ export const store = configureStore({
     }),
   ],
 });
-
-export const persistor = persistStore(store);

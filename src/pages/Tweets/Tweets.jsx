@@ -48,18 +48,13 @@ const Tweets = () => {
         />
       </Header>
       <main>
-        {tweets.length? <CardContainer>
-          {visibleTweets.length ? (
-            <UserCards
-              users={visibleTweets}
-              usersId={usersId}
-              setUsersId={setUsersId}
-            />
-          ) : (
-            <div>Not yet</div>
-          )}
-        </CardContainer> : 'loading...'}
-       
+        <CardContainer>
+          <UserCards
+            users={visibleTweets}
+            usersId={usersId}
+            setUsersId={setUsersId}
+          />
+        </CardContainer>
 
         <Pagination
           tweets={filterTweets}
