@@ -4,7 +4,7 @@ import { PaginationContainer } from "./Pagination.styled";
 
 const Pagination = ({ tweets, setVisibleTweets, endIndex, setEndIndex }) => {
   const loadMore = () => {
-    setEndIndex((prevEndIndex) => prevEndIndex + 3);
+    setEndIndex((prevEndIndex) => prevEndIndex + tweets.length);
   };
 
   useEffect(() => {
