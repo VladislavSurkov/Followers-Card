@@ -10,9 +10,10 @@ import Dropdown from "components/Dropdown/Dropdown";
 import Pagination from "components/Pagination/Pagination";
 import UserCards from "components/UserCards/UserCards";
 import Button from "components/Button/Button";
+import Loader from "components/Loader/Loader";
 
 import { BtnContainer, CardContainer, Header } from "./Tweets.styled";
-import Loader from "components/Loader/Loader";
+
 
 const Tweets = () => {
   const [filterTweets, setFilterTweets] = useState([]);
