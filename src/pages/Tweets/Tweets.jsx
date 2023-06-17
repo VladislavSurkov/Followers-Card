@@ -51,7 +51,7 @@ const Tweets = () => {
         />
       </Header>
       <main>
-        {isLoading ? (
+        {isLoading && filterTweets.length === 0 ? (
           <Loader />
         ) : (
           <>
