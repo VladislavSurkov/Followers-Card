@@ -12,6 +12,7 @@ import UserCards from "components/UserCards/UserCards";
 import Button from "components/Button/Button";
 
 import { BtnContainer, CardContainer, Header } from "./Tweets.styled";
+import Loader from "components/Loader/Loader";
 
 const Tweets = () => {
   const [filterTweets, setFilterTweets] = useState([]);
@@ -49,20 +50,25 @@ const Tweets = () => {
         />
       </Header>
       <main>
-        <CardContainer>
-          <UserCards
-            users={visibleTweets}
-            usersId={usersId}
-            setUsersId={setUsersId}
-          />
-        </CardContainer>
-
-        <Pagination
-          tweets={filterTweets}
-          setVisibleTweets={setVisibleTweets}
-          endIndex={endIndex}
-          setEndIndex={setEndIndex}
-        />
+        {tweets.length === 0 ? (
+          <Loader />
+        ) : (
+          <>
+            <CardContainer>
+              <UserCards
+                users={visibleTweets}
+                usersId={usersId}
+                setUsersId={setUsersId}
+              />
+            </CardContainer>
+            <Pagination
+              tweets={filterTweets}
+              setVisibleTweets={setVisibleTweets}
+              endIndex={endIndex}
+              setEndIndex={setEndIndex}
+            />
+          </>
+        )}
       </main>
     </>
   );
