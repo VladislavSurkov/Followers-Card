@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 
 import { useLocalStorage } from "hooks/useLocalStorage";
 import { fetchUsers } from "redux/users/users-operations";
-import { getUsers } from "redux/users/users-selectors";
+import { getLoading, getUsers } from "redux/users/users-selectors";
 
 import Dropdown from "components/Dropdown/Dropdown";
 import Pagination from "components/Pagination/Pagination";
@@ -14,7 +14,6 @@ import Loader from "components/Loader/Loader";
 
 import { BtnContainer, CardContainer, Header } from "./Tweets.styled";
 
-
 const Tweets = () => {
   const [filterTweets, setFilterTweets] = useState([]);
   const [visibleTweets, setVisibleTweets] = useState([]);
@@ -22,6 +21,7 @@ const Tweets = () => {
   const [usersId, setUsersId] = useLocalStorage("usersId", []);
 
   const tweets = useSelector(getUsers);
+  const isLoading = useSelector(getLoading);
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ const Tweets = () => {
         />
       </Header>
       <main>
-        {tweets.length === 0 ? (
+        {isLoading ? (
           <Loader />
         ) : (
           <>
