@@ -1,10 +1,6 @@
 import Select from "react-select";
 import { useCallback, useEffect, useRef, useState } from "react";
-import {
-  colorStyles,
-  themeStyles,
-  IndicatorSeparator,
-} from "./Dropdown.styled";
+import { styles, theme, IndicatorSeparator } from "./Dropdown.styled";
 
 const FilterItem = [
   {
@@ -64,8 +60,8 @@ const Dropdown = ({ tweets, usersId, setFilterTweets, setEndIndex }) => {
 
   return (
     <Select
-      styles={{ ...colorStyles }}
-      theme={themeStyles}
+      styles={{ ...styles }}
+      theme={theme}
       components={{ IndicatorSeparator }}
       onChange={onChange}
       isSearchable={false}

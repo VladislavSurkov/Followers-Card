@@ -1,4 +1,4 @@
-export const colorStyles = {
+export const styles = {
   control: () => ({
     display: "flex",
     width: "400px",
@@ -49,7 +49,7 @@ export const colorStyles = {
   }),
 };
 
-export const themeStyles = (theme) => ({
+export const theme = (theme) => ({
   ...theme,
   colors: {
     ...theme.colors,

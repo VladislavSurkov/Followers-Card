@@ -1,5 +1,5 @@
-import Button from "components/Button/Button";
 import { useEffect } from "react";
+import Button from "components/Button/Button";
 import { PaginationContainer } from "./Pagination.styled";
 
 const Pagination = ({ tweets, setVisibleTweets, endIndex, setEndIndex }) => {

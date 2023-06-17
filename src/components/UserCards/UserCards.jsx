@@ -40,7 +40,7 @@ const UserCards = ({ users, usersId, setUsersId }) => {
     <>
       {users.length > 0 &&
         users.map(({ user, followers, tweets, avatar, id }) => {
-          const checkFollow = usersId.some((i) => i === id);
+          const checkFollow = usersId.includes(id);
 
           return (
             <Card key={id}>

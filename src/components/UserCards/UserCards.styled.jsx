@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import picture from "../../images/picture.png";
+import picture from "../../images/picture308.png";
 
 export const Card = styled.section`
   display: flex;

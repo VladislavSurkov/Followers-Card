@@ -14,12 +14,13 @@ import Button from "components/Button/Button";
 import { BtnContainer, CardContainer, Header } from "./Tweets.styled";
 
 const Tweets = () => {
-  const dispatch = useDispatch();
-  const tweets = useSelector(getUsers);
   const [filterTweets, setFilterTweets] = useState([]);
   const [visibleTweets, setVisibleTweets] = useState([]);
   const [endIndex, setEndIndex] = useState(3);
   const [usersId, setUsersId] = useLocalStorage("usersId", []);
+
+  const tweets = useSelector(getUsers);
+  const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -66,4 +67,5 @@ const Tweets = () => {
     </>
   );
 };
+
 export default Tweets;

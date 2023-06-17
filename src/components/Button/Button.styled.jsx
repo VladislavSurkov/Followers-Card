@@ -15,7 +15,6 @@ const COLOR = {
       background: #5cd3a89f;
     }
   `,
-
 };
 
 const WIDTH = {
